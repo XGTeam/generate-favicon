@@ -13,4 +13,8 @@ describe('Main View', function() {
   it('should have correct title', function() {
     expect(page.title).toBe('Generate Favicon');
   });
+
+  it('should have a upload form', function() {
+    expect(page.form).toBeDefined();
+  });
 });

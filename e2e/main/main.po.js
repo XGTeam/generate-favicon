@@ -7,6 +7,7 @@
 
 var MainPage = function() {
   this.title = browser.getTitle();
+  this.form  = element.all(by.id('upload-form'));
 };
 
 module.exports = new MainPage();
