@@ -6,9 +6,11 @@
 'use strict';
 
 var NavbarComponent = function() {
+  var repeater= by.repeater('item in menu');
   this.navbar = element(by.css('.navbar'));
-  this.navbarHeader = this.navbar.element(by.css('.navbar-header'));
-  this.navbarNav = this.navbar.element(by.css('#navbar-main .nav.navbar-nav:not(.navbar-right)'));
+  this.items  = element.all(repeater);
+  this.first  = element(repeater.row(0));
+  this.second = element(repeater.row(1));
 };
 
 module.exports = new NavbarComponent();

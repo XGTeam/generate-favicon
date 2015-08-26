@@ -3,7 +3,14 @@
 angular.module 'generateFaviconApp'
 .controller 'NavbarCtrl', ($scope) ->
   $scope.menu = [
-    title: 'Home'
+    title: '首页'
     state: 'main'
+  ,
+    title: '关于Favicon',
+    state: 'about.favicon'
   ]
+
   $scope.isCollapsed = true
+
+  $scope.count = ->
+    $scope.menu.length
