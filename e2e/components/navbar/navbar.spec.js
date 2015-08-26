@@ -48,7 +48,7 @@ describe('Navbar', function() {
 
     it('should redirect to about favicon page when click', function() {
       clickNavItem(page.second);
-      expect(browser.getCurrentUrl()).toBe(fullUrl('/about-favicon'));
+      expect(browser.getCurrentUrl()).toBe(fullUrl('/about'));
     });
   });
 });

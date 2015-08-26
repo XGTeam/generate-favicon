@@ -7,7 +7,7 @@ angular.module 'generateFaviconApp'
     state: 'main'
   ,
     title: '关于Favicon',
-    state: 'about.favicon'
+    state: 'about'
   ]
 
   $scope.isCollapsed = true
