@@ -6,12 +6,26 @@ describe 'Directive: uploadForm', ->
   beforeEach module 'generateFaviconApp'
   beforeEach module 'components/uploadForm/uploadForm.html'
   element = undefined
-  scope = undefined
-  beforeEach inject ($rootScope) ->
-    scope = $rootScope.$new()
-
-  it 'should make hidden element visible', inject ($compile) ->
+  scope   = undefined
+  form    = undefined
+  beforeEach inject ($rootScope, $compile) ->
+    scope   = $rootScope.$new()
     element = angular.element '<upload-form></upload-form>'
     element = $compile(element) scope
     scope.$apply()
-    expect(element.text()).toBe 'this is the uploadForm directive'
+
+    form    = element.find 'form#upload-favicon-form'
+
+  it 'should make hidden element visible', inject ->
+    expect(element.find('h3').text()).toBe '生成你的favicon.ico'
+
+  it 'should have a visible form', inject ->
+    expect(form.length).toEqual 1
+
+  it 'should have a file input in the form', inject ->
+    inputEl = form.find 'input[name=file]'
+    expect(inputEl.length).toEqual 1
+    expect(inputEl.attr 'ng-model').toBe 'uploadForm.file'
+
+  it 'should have a submit button', inject ->
+    expect(form.find('button[type=submit]').text()).toBe '生成'
