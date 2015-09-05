@@ -18,7 +18,7 @@ angular.module 'generateFaviconApp'
 
   # form submit
   $scope.submit = ->
-    if form.file.$valid && $scope.file && !$scope.file.$error
+    if $scope.form.file.$valid && $scope.form.file
       $scope.upload($scope.file)
 
   $scope.upload = (file) ->
