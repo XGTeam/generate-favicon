@@ -22,10 +22,8 @@ describe 'Directive: uploadForm', ->
   it 'should have a visible form', inject ->
     expect(form.length).toEqual 1
 
-  it 'should have a file input in the form', inject ->
-    inputEl = form.find 'input[name=file]'
-    expect(inputEl.length).toEqual 1
-    expect(inputEl.attr 'ng-model').toBe 'uploadForm.file'
-
   it 'should have a submit button', inject ->
     expect(form.find('button[type=submit]').text()).toBe '生成'
+
+  it 'should have a ng upload select button', inject ->
+    expect(form.find('[ngf-select]').length).toEqual 1

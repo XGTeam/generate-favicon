@@ -5,7 +5,8 @@ angular.module 'generateFaviconApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngFileUpload'
 ]
 .config ($stateProvider, $urlRouterProvider, $locationProvider) ->
   $urlRouterProvider
