@@ -13,4 +13,9 @@ exports.index = function(req, res) {
 
 // Create a favicon
 exports.create = function(req, res) {
+  var file = req.file;
+
+  res.status(201).json({
+    'path' : file.path
+  });
 };

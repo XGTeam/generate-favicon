@@ -30,7 +30,7 @@ angular.module 'generateFaviconApp'
       progressPercentage = parseInt(100.0 * evt.loaded / evt.total)
       $scope.progressbar.percent = progressPercentage
     .success (data) ->
-      console.log 'upload success'
+      console.log data
     .error (data, status, headers, config) ->
       $scope.progressbar.hide()
 ]
