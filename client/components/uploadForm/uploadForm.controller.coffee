@@ -24,7 +24,7 @@ angular.module 'generateFaviconApp'
   $scope.upload = (file) ->
     $scope.progressbar.show()
     Upload.upload
-      url : '/upload'
+      url : '/api/favicons'
       file: file
     .progress (evt) ->
       progressPercentage = parseInt(100.0 * evt.loaded / evt.total)
