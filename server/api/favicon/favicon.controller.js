@@ -19,9 +19,8 @@ exports.create = function(req, res) {
       mkdirp   = require('mkdirp'),
       fs       = require('fs'),
       config   = require('../../config/environment'),
-      archiver = require('archiver'),
       exec     = require('child_process').exec,
-      archive  = archiver('zip'),
+      del      = require('del'),
       image    = sharp(file.path),
       dest     = path.join(config.favicon_dest, file.filename),
       storage  = path.join(config.root, 'storage'),
@@ -68,6 +67,9 @@ exports.create = function(req, res) {
   // Archive
   var cmd = 'zip -r ' + path.join(config.download_path, file.filename + '.zip') + ' ' + dest;
   exec(cmd);
+
+  // Clean
+  del([file.path, path.join(dest, '**')], {force: true});
 
   res.status(201).json({ 'file' : file.filename + '.zip' });
 };
