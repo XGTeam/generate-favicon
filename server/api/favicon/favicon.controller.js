@@ -17,9 +17,14 @@ exports.create = function(req, res) {
       sharp    = require('sharp'),
       path     = require('path'),
       mkdirp   = require('mkdirp'),
+      fs       = require('fs'),
       config   = require('../../config/environment'),
+      archiver = require('archiver'),
+      archive  = archiver('zip'),
       image    = sharp(file.path),
       dest     = path.join(config.favicon_dest, file.filename),
+      storage  = path.join(config.root, 'storage'),
+      lisans   = [ 'browserconfig.xml', 'manifest.json' ],
       resizers = [
         {name: 'favicon.ico', width: 16, height: 16},
         {name: 'favicon-16x16.png', width: 16, height: 16},
@@ -53,6 +58,14 @@ exports.create = function(req, res) {
   resizers.forEach(function(obj) {
     image.resize(obj.width, obj.height).toFile(path.join(dest, obj.name));
   });
+
+  lisans.forEach(function(obj) {
+    fs.createReadStream(path.join(storage, obj))
+      .pipe(fs.createWriteStream(path.join(dest, obj)));
+  });
+
+  // Archive
+  archive.bulk([ {src: ['*'], cwd: dest, dest: config.download_path} ]);
 
   res.status(201).json({
     'path' : file.path

@@ -22,5 +22,6 @@ module.exports = {
             'mongodb://localhost/generatefavicon'
   },
 
-  favicon_dest: '/alidata/favicon-uploads'
+  favicon_dest: '/alidata/favicon-uploads',
+  download_path: '/alidata/downloads'
 };

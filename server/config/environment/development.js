@@ -20,5 +20,6 @@ module.exports = {
 
   seedDB: true,
 
-  favicon_dest: '/tmp'
+  favicon_dest: '/tmp',
+  download_path: '/tmp'
 };
