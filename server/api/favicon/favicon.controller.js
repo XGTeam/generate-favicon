@@ -14,13 +14,16 @@ exports.index = function(req, res) {
 // Create a favicon
 exports.create = function(req, res) {
   var file     = req.file,
+      Q        = require('q'),
       sharp    = require('sharp'),
       path     = require('path'),
       mkdirp   = require('mkdirp'),
       fs       = require('fs'),
+      del      = require('del'),
+      archiver = require('archiver'),
+      archive  = archiver('zip'),
       config   = require('../../config/environment'),
       exec     = require('child_process').exec,
-      del      = require('del'),
       image    = sharp(file.path),
       dest     = path.join(config.favicon_dest, file.filename),
       storage  = path.join(config.root, 'storage'),
@@ -65,11 +68,29 @@ exports.create = function(req, res) {
   });
 
   // Archive
-  var cmd = 'zip -r ' + path.join(config.download_path, file.filename + '.zip') + ' ' + dest;
-  exec(cmd);
+  var zip_filename = file.filename + '.zip',
+      now          = new Date(),
+      year         = now.getFullYear() + '',
+      month        = now.getMonth() + 1 + '',
+      day          = now.getDate() + '',
+      archive_dir  = path.join(config.download_path, year, month, day),
+      zip_filepath = path.join(archive_dir, zip_filename),
+      output       = fs.createWriteStream(zip_filename);
 
-  // Clean
-  del([file.path, path.join(dest, '**')], {force: true});
+  mkdirp(archive_dir);
 
-  res.status(201).json({ 'file' : file.filename + '.zip' });
+  output.on('close', function () {
+    console.log(archive.pointer() + ' total bytes');
+    console.log('archiver has been finalized and the output file descriptor has closed.');
+  });
+  archive.on('error', function(err){
+    throw err;
+  });
+  archive.pipe(output);
+  archive.bulk([ { expand: true, cwd: config.root, src: ['**/*'], dest: archive_dir} ]);
+  archive.finalize();
+
+  // del([file.path, path.join(dest, '**')], {force: true});
+
+  res.status(201).json({ 'file' : zip_filename });
 };
