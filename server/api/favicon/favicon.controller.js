@@ -56,16 +56,6 @@ exports.create = function(req, res) {
         {name: 'apple-icon.png', width: 192, height: 192},
       ];
 
-  mkdirp(dest);
-
-  resizers.forEach(function(obj) {
-    image.resize(obj.width, obj.height).toFile(path.join(dest, obj.name));
-  });
-
-  lisans.forEach(function(obj) {
-    fs.createReadStream(path.join(storage, obj))
-      .pipe(fs.createWriteStream(path.join(dest, obj)));
-  });
 
   // Archive
   var zip_filename = file.filename + '.zip',
@@ -74,23 +64,55 @@ exports.create = function(req, res) {
       month        = now.getMonth() + 1 + '',
       day          = now.getDate() + '',
       archive_dir  = path.join(config.download_path, year, month, day),
-      zip_filepath = path.join(archive_dir, zip_filename),
-      output       = fs.createWriteStream(zip_filename);
+      zip_filepath = path.join(archive_dir, zip_filename);
 
-  mkdirp(archive_dir);
+  function one() {
+    var deferred = Q.defer();
+    mkdirp(dest);
+    deferred.resolve();
+    return deferred.promise;
+  }
 
-  output.on('close', function () {
-    console.log(archive.pointer() + ' total bytes');
-    console.log('archiver has been finalized and the output file descriptor has closed.');
-  });
-  archive.on('error', function(err){
-    throw err;
-  });
-  archive.pipe(output);
-  archive.bulk([ { expand: true, cwd: config.root, src: ['**/*'], dest: archive_dir} ]);
-  archive.finalize();
+  function two() {
+    return resizers.map(function(obj) {
+      return function() {
+        return image.resize(obj.width, obj.height).toFile(path.join(dest, obj.name));
+      };
+    }).reduce(Q.when, Q());
+  }
 
-  // del([file.path, path.join(dest, '**')], {force: true});
+  function three() {
+    return lisans.map(function(obj) {
+      return function() {
+        return fs.createReadStream(path.join(storage, obj))
+          .pipe(fs.createWriteStream(path.join(dest, obj)));
+      };
+    }).reduce(Q.when, Q());
+  }
+
+  function four() {
+    var deferred = Q.defer();
+    mkdirp(archive_dir);
+    deferred.resolve();
+    return deferred.promise;
+  }
+
+  function five() {
+    var deferred = Q.defer();
+    var cmd = 'zip -r ' + zip_filepath + ' ' + dest;
+    exec(cmd);
+    deferred.resolve();
+    return deferred.promise;
+  }
+
+  function six() {
+    var deferred = Q.defer();
+    del([file.path], {force: true});
+    deferred.resolve();
+    return deferred.promise;
+  }
+
+  one().then(two).then(three).then(four).then(five).done();
 
   res.status(201).json({ 'file' : zip_filename });
 };
