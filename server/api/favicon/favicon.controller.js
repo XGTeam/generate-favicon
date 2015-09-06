@@ -99,7 +99,7 @@ exports.create = function(req, res) {
 
   function five() {
     var deferred = Q.defer();
-    var cmd = 'zip -r ' + zip_filepath + ' ' + dest;
+    var cmd = 'cd ' + config.favicon_dest + ' && zip -r ' + zip_filepath + ' ' + file.filename;
     exec(cmd);
     deferred.resolve();
     return deferred.promise;
