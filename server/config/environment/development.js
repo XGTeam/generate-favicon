@@ -18,5 +18,7 @@ module.exports = {
     }
   },
 
-  seedDB: true
+  seedDB: true,
+
+  favicon_dest: '/tmp'
 };
