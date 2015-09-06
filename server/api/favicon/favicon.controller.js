@@ -20,6 +20,7 @@ exports.create = function(req, res) {
       fs       = require('fs'),
       config   = require('../../config/environment'),
       archiver = require('archiver'),
+      exec     = require('child_process').exec,
       archive  = archiver('zip'),
       image    = sharp(file.path),
       dest     = path.join(config.favicon_dest, file.filename),
@@ -65,9 +66,8 @@ exports.create = function(req, res) {
   });
 
   // Archive
-  archive.bulk([ {src: ['*'], cwd: dest, dest: config.download_path} ]);
+  var cmd = 'zip -r ' + path.join(config.download_path, file.filename + '.zip') + ' ' + dest;
+  exec(cmd);
 
-  res.status(201).json({
-    'path' : file.path
-  });
+  res.status(201).json({ 'file' : file.filename + '.zip' });
 };
