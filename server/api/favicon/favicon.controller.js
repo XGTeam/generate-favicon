@@ -114,5 +114,8 @@ exports.create = function(req, res) {
 
   one().then(two).then(three).then(four).then(five).done();
 
-  res.status(201).json({ 'file' : zip_filename });
+  res.status(201).json({
+    'file' : zip_filename,
+    'path' : path.join('/', year, month, day, zip_filename)
+  });
 };
