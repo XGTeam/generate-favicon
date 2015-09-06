@@ -51,8 +51,7 @@ exports.create = function(req, res) {
   mkdirp(dest);
 
   resizers.forEach(function(obj) {
-    image.clone().resize(obj.width, obj.height)
-      .toFile(path.join(dest, obj.name));
+    image.resize(obj.width, obj.height).toFile(path.join(dest, obj.name));
   });
 
   res.status(201).json({
