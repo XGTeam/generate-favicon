@@ -116,6 +116,6 @@ exports.create = function(req, res) {
 
   res.status(201).json({
     'file' : zip_filename,
-    'path' : path.join('/', year, month, day, zip_filename)
+    'path' : path.join('/favicons', year, month, day, zip_filename)
   });
 };

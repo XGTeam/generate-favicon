@@ -9,4 +9,4 @@ angular.module 'generateFaviconApp'
 
   $scope.$on 'uploaded', (evt, data)->
     $scope.uploaded = true
-    $scope.link = "http://download.generate-favicon.com#{data.path}"
+    $scope.link     = data.path
