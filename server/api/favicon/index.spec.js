@@ -3,8 +3,9 @@
 var proxyquire = require('proxyquire').noPreserveCache();
 
 var faviconCtrlStub = {
-  index : 'faviconCtrl.index',
-  create: 'faviconCtrl.create'
+  index    : 'faviconCtrl.index',
+  create   : 'faviconCtrl.create',
+  download : 'faviconCtrl.download'
 };
 
 var routerStub = {
@@ -38,12 +39,21 @@ describe('Favicon API Router:', function() {
 
   });
 
-  describe('POST /api/favicons', function() {
-    it('should route to favicon.controller.create', function() {
-      routerStub.post
-                .withArgs('/', 'faviconCtrl.create')
+  describe('GET /api/favicons/2015/9/6/hello.zip', function() {
+
+    it('should route to favicon.controller.download', function() {
+      routerStub.get
+                .withArgs('/2015/9/6/hello.zip', 'faviconCtrl.download')
                 .should.have.been.calledOnce;
     });
+
   });
+  // describe('POST /api/favicons', function() {
+  //   it('should route to favicon.controller.create', function() {
+  //     routerStub.post
+  //               .withArgs('/', 'faviconCtrl.create')
+  //               .should.have.been.calledOnce;
+  //   });
+  // });
 
 });

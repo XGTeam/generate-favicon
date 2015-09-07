@@ -11,6 +11,21 @@ exports.index = function(req, res) {
   res.json([]);
 };
 
+exports.download = function(req, res) {
+  var year     = req.params.year,
+      month    = req.params.month,
+      day      = req.params.day,
+      filename = req.params.filename,
+      config   = require('../../config/environment'),
+      path     = require('path');
+
+  var file = path.join(config.download_path, year, month, day, filename);
+
+  res.download(file, filename, function (err) {
+    res.status(404).end();
+  });
+};
+
 // Create a favicon
 exports.create = function(req, res) {
   var file     = req.file,
@@ -116,6 +131,6 @@ exports.create = function(req, res) {
 
   res.status(201).json({
     'file' : zip_filename,
-    'path' : path.join('/favicons', year, month, day, zip_filename)
+    'path' : path.join('/api/favicons', year, month, day, zip_filename)
   });
 };
