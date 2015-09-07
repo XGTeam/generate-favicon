@@ -44,7 +44,7 @@ exports.create = function(req, res) {
       config   = require('../../config/environment'),
       image    = sharp(file.path),
       dest     = path.join(config.favicon_dest, file.filename),
-      storage  = path.join(config.root, 'storage'),
+      storage  = path.join(config.root, 'server/storage'),
       lisans   = [ 'browserconfig.xml', 'manifest.json' ],
       resizers = [
         {name: 'favicon.ico', width: 16, height: 16},
