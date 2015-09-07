@@ -13,18 +13,10 @@ describe 'Controller: MainCtrl', ->
 
   # Initialize the controller and a mock scope
   beforeEach inject (_$httpBackend_, $controller, $rootScope, $state) ->
-    $httpBackend = _$httpBackend_
-    $httpBackend.expectGET('/api/things').respond [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-      'Express'
-    ]
     scope = $rootScope.$new()
     state = $state
     MainCtrl = $controller 'MainCtrl',
       $scope: scope
 
-  it 'should attach a list of things to the scope', ->
-    $httpBackend.flush()
-    expect(scope.awesomeThings.length).toBe 4 
+  it 'should attach a variable to display the form to the scope', ->
+    expect(scope.uploaded).toBe true

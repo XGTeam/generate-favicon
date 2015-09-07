@@ -2,9 +2,7 @@
 
 angular.module 'generateFaviconApp'
 .controller 'MainCtrl', ($scope, $http) ->
-  $scope.awesomeThings = []
+  $scope.uploaded = false
 
-  $http.get('/api/things').success (awesomeThings) ->
-    $scope.awesomeThings = awesomeThings
-    
-
+  $scope.$on 'uploaded', (evt, data)->
+    $scope.uploaded = true
