@@ -10,3 +10,4 @@ angular.module 'generateFaviconApp'
   $scope.$on 'uploaded', (evt, data)->
     $scope.uploaded = true
     $scope.link     = data.path
+    $scope.file     = data.file

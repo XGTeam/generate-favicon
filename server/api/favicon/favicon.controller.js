@@ -22,7 +22,7 @@ exports.download = function(req, res) {
   var file = path.join(config.download_path, year, month, day, filename);
 
   res.download(file, filename, function (err) {
-    res.status(404).end();
+    if (err) { res.status(404).end(); }
   });
 };
 
@@ -38,7 +38,6 @@ exports.create = function(req, res) {
       archiver = require('archiver'),
       archive  = archiver('zip'),
       config   = require('../../config/environment'),
-      exec     = require('child_process').exec,
       image    = sharp(file.path),
       dest     = path.join(config.favicon_dest, file.filename),
       storage  = path.join(config.root, 'storage'),
@@ -114,8 +113,25 @@ exports.create = function(req, res) {
 
   function five() {
     var deferred = Q.defer();
-    var cmd = 'cd ' + config.favicon_dest + ' && zip -r ' + zip_filepath + ' ' + file.filename;
-    exec(cmd);
+
+    var output   = fs.createWriteStream(zip_filepath);
+
+    output.on('close', function() {
+      console.log(archive.pointer() + ' total bytes');
+      console.log('archiver has been finalized and the output file descriptor has closed.');
+    });
+
+    archive.on('error', function(err) {
+      throw err;
+    });
+
+    archive.on('finish', function() {
+      res.end();
+    });
+
+    archive.pipe(output);
+    archive.directory(dest, file.filename).finalize();
+
     deferred.resolve();
     return deferred.promise;
   }
