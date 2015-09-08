@@ -157,7 +157,7 @@ exports.create = function(req, res) {
     return deferred.promise;
   }
 
-  one().then(two).then(three).then(five).done();
+  one().then(two).then(three).delay(1000).then(five);
 
   res.status(201).json({
     'file' : zip_filename,
