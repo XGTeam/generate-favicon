@@ -86,8 +86,7 @@ exports.create = function(req, res) {
 
   function one() {
     var deferred = Q.defer();
-    mkdirp(dest);
-    mkdirp(archive_dir);
+    mkdirp(dest, archive_dir);
     deferred.resolve();
     return deferred.promise;
   }
