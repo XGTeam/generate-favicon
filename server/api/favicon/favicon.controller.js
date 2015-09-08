@@ -97,8 +97,10 @@ exports.create = function(req, res) {
   function two() {
     return resizers.map(function(obj) {
       return function() {
-        return image.resize(obj.width, obj.height)
-          .ignoreAspectRatio()
+        return image.clone()
+          .resize(obj.width, obj.height)
+          .background('white')
+          .embed()
           .toFile(path.join(dest, obj.name), function (err) {
             if (err) console.log(err);
           });
