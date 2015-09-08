@@ -98,6 +98,7 @@ exports.create = function(req, res) {
     return resizers.map(function(obj) {
       return function() {
         return image.resize(obj.width, obj.height)
+          .ignoreAspectRatio()
           .toFile(path.join(dest, obj.name), function (err) {
             if (err) console.log(err);
           });
