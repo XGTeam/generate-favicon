@@ -94,7 +94,10 @@ exports.create = function(req, res) {
   function two() {
     return resizers.map(function(obj) {
       return function() {
-        return image.resize(obj.width, obj.height).toFile(path.join(dest, obj.name));
+        return image.resize(obj.width, obj.height)
+          .toFile(path.join(dest, obj.name), function (err) {
+            if (err) console.log(err);
+          });
       };
     }).reduce(Q.when, Q());
   }
