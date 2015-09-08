@@ -86,7 +86,7 @@ exports.create = function(req, res) {
 
   function one() {
     var deferred = Q.defer();
-    mkdirp(dest, archive_dir);
+    mkdirp(dest);
     deferred.resolve();
     return deferred.promise;
   }
@@ -113,6 +113,9 @@ exports.create = function(req, res) {
 
   function four() {
     var deferred = Q.defer();
+    mkdirp(archive_dir, function(err) {
+      if (err) console.error(err)
+    });
     deferred.resolve();
     return deferred.promise;
   }
@@ -151,7 +154,7 @@ exports.create = function(req, res) {
     return deferred.promise;
   }
 
-  one().then(two).then(three).then(five).done();
+  one().then(two).then(three).then(four).then(five).done();
 
   res.status(201).json({
     'file' : zip_filename,
