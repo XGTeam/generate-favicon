@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'generate_favicon'
-set :repo_url, 'https://github.com/zgs225/generate-favicon.git'
+set :repo_url, 'https://github.com/XGTeam/generate-favicon.git'
 set :deploy_to, '/home/yuez/www/generate-favicon.com'
 
 # pm2
