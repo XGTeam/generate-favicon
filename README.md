@@ -11,6 +11,7 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 - [Bower](bower.io) (`npm install --global bower`)
 - [Ruby](https://www.ruby-lang.org) and then `gem install sass`
 - [Grunt](http://gruntjs.com/) (`npm install --global grunt-cli`)
+- [libvips](http://sharp.dimens.io/en/stable/install/) (Install guide)
 
 ### Developing
 
