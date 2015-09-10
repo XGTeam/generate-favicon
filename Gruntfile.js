@@ -361,6 +361,8 @@ module.exports = function (grunt) {
             'bower_components/**/*',
             'assets/images/{,*/}*.{webp}',
             'assets/fonts/**/*',
+            'browserconfig.xml',
+            'manifest.json',
             'index.html'
           ]
         }, {
