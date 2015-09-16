@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="200px" height="160px" viewBox="0 0 200 160" enable-background="new 0 0 200 160" xml:space="preserve">
+<g>
+	<circle fill="#009844" cx="43.658" cy="51.332" r="8.485"/>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="80.7808" y1="157.7585" x2="80.7808" y2="3">
+		<stop  offset="0" style="stop-color:#69B344"/>
+		<stop  offset="0.3115" style="stop-color:#4D965D"/>
+		<stop  offset="1" style="stop-color:#115992"/>
+	</linearGradient>
+	<path fill="url(#SVGID_1_)" d="M156.793,73.709C156.793,34.658,125.136,3,86.084,3c-33.429,0-61.42,23.205-68.793,54.381
+		c-0.622-0.114-1.261-0.182-1.916-0.182c-5.858,0-10.606,4.749-10.606,10.606c0,5.858,4.749,10.606,10.606,10.606
+		c0.058,0,0.114-0.008,0.172-0.009c1.769,26.966,18.644,49.796,42.253,60.115v19.24h56.567v-19.24
+		C139.337,127.605,156.793,102.702,156.793,73.709z"/>
+</g>
+<g>
+	<circle fill="#FFFFFF" cx="104.364" cy="73.709" r="70.709"/>
+	<rect x="76.081" y="54.025" fill="#FFFFFF" width="56.567" height="103.734"/>
+	<circle fill="#FFFFFF" cx="61.939" cy="51.332" r="8.485"/>
+	<circle fill="#FFFFFF" cx="33.655" cy="67.805" r="10.606"/>
+</g>
+<g>
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="118.7559" y1="157.7585" x2="118.7559" y2="3">
+		<stop  offset="0.05" style="stop-color:#B6CC31"/>
+		<stop  offset="0.2426" style="stop-color:#9FC536"/>
+		<stop  offset="0.6813" style="stop-color:#6FB642"/>
+		<stop  offset="0.9" style="stop-color:#5DB046"/>
+	</linearGradient>
+	<path fill="url(#SVGID_2_)" d="M194.768,73.709C194.768,34.658,163.111,3,124.059,3C90.63,3,62.639,26.205,55.266,57.381
+		c-0.622-0.114-1.261-0.182-1.916-0.182c-5.858,0-10.606,4.749-10.606,10.606c0,5.858,4.749,10.606,10.606,10.606
+		c0.058,0,0.114-0.008,0.172-0.009c1.769,26.966,18.644,49.796,42.253,60.115v19.24h56.567v-19.24
+		C177.312,127.605,194.768,102.702,194.768,73.709z"/>
+	<circle fill="#FFFFFF" cx="81.634" cy="51.332" r="8.485"/>
+</g>
+<path fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" d="M58.824,107.629
+	c14.325,0,30.433-6.055,41.561-17.183"/>
+</svg>

@@ -1,0 +1,20 @@
+.favicon-sidenav {
+  background: '#607D8B';
+  overflow: hidden;
+}
+
+.nav-header {
+  padding-top: 20px;
+  .favicon-logo {
+    img {
+      width: 160px;
+    }
+  }
+}
+
+
+.favicon-sidenav, .favicon-sidenav.md-locked-open-add-active, .favicon-sidenav.md-locked-open {
+  width: 256px;
+  max-width: 256px;
+  min-width: 256px;
+}

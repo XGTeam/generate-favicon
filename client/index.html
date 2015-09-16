@@ -32,6 +32,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
+      <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -40,13 +41,28 @@
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
-  <body ng-app="generateFaviconApp">
+  <body layout="row" ng-app="generateFaviconApp" layout-wrap>
     <!--[if lt IE 7]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <navbar flex="20" class="md-whiteframe-z2 favicon-sidenav"></navbar>
     <!-- Add your site or application content here -->
-    <div ui-view=""></div>
+    <div flex>
+      <md-toolbar ng-controller="MainCtrl" class="md-whiteframe-glow-z1 md-accent">
+        <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="菜单" ng-click="toggleMenu()" hide-gt-sm>
+          <i class="fa fa-bars fa-lg"></i>
+        </md-button>
+        <h2>
+          <span>Generate Favicon</span>
+        </h2>
+        <md-button class="md-icon-button" aria-label="分享">
+          <md-tooltip>分享</md-tooltip>
+          <i class="fa fa-share fa-lg"></i>
+        </md-button>
+      </md-toolbar>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -69,6 +85,9 @@
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/angular-aria/angular-aria.js"></script>
+      <script src="bower_components/angular-material/angular-material.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>
       <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
