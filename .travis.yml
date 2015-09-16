@@ -5,6 +5,6 @@ before_script:
   - npm install -g bower grunt-cli
   - gem install sass
   - bower install
-services:
-  - mongodb
-  - libvips
+before_install:
+  - curl -s https://raw.githubusercontent.com/lovell/sharp/master/preinstall.sh | bash -
+services: mongodb
