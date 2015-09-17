@@ -81,10 +81,10 @@
         </h2>
         <span flex></span>
         <md-button class="md-icon-button" aria-label="Github" ng-href="mailto:i@yuez.me">
-          <md-tooltip>联系作者</md-tooltip>
+          <md-tooltip>反馈Bug</md-tooltip>
           <i class="fa fa-envelope fa-lg"></i>
         </md-button>
-        <md-button class="md-icon-button" aria-label="Share">
+        <md-button class="md-icon-button" aria-label="Share" ng-click="showGridBottomSheet($event)">
           <md-tooltip>分享</md-tooltip>
           <i class="fa fa-share fa-lg"></i>
         </md-button>
@@ -104,6 +104,14 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-67434166-1', 'auto');
     ga('send', 'pageview');
+  </script>
+
+  <!-- Baidu sharing -->
+  <div class="bdsharebuttonbox" data-tag="share_1" hide>
+    <a data-cmd="{{item.cmd}}" ng-repeat="item in share_items"></a>
+  </div>
+  <script>
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
   </script>
 
   <!--[if lt IE 9]>
@@ -132,6 +140,7 @@
   <script src="app/main/main.js"></script>
   <script src="components/footer/footer.js"></script>
   <script src="components/result/result.js"></script>
+  <script src="components/sharing/sharing.js"></script>
   <script src="components/ui-router/ui-router.js"></script>
   <script src="components/uploadForm/uploadForm.js"></script>
   <!-- endinjector -->
