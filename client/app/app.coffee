@@ -8,7 +8,9 @@ angular.module 'generateFaviconApp', [
   'ngFileUpload',
   'ngMaterial'
 ]
-.config ($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) ->
+.config ($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider, $compileProvider) ->
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/)
+
   $urlRouterProvider
   .otherwise '/'
 
