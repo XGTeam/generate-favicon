@@ -14,6 +14,7 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 - [Ruby](https://www.ruby-lang.org) and then `gem install sass`
 - [Grunt](http://gruntjs.com/) (`npm install --global grunt-cli`)
 - [libvips](http://sharp.dimens.io/en/stable/install/) (Install guide)
+- [marked](https://github.com/chjj/marked) (npm install -g marked)
 
 ### Developing
 
