@@ -20,3 +20,15 @@ angular.module 'generateFaviconApp', [
     .accentPalette('green', default: '600')
     .warnPalette('red')
     .backgroundPalette('grey')
+
+.controller 'AppCtrl', ($scope, $mdSidenav) ->
+  $scope.menu = [
+    title: '首页'
+    state: 'main'
+  ,
+    title: '关于Favicon'
+    state: 'about'
+  ]
+
+  $scope.toggleMenu = ->
+    $mdSidenav('left').toggle()

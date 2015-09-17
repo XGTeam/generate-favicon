@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'generateFaviconApp'
-.controller 'MainCtrl', ($scope, $state, $mdSidenav) ->
+.controller 'MainCtrl', ($scope, $state) ->
   $scope.uploaded = false
 
   $scope.reloadRoute = ->
@@ -11,6 +11,3 @@ angular.module 'generateFaviconApp'
     $scope.uploaded = true
     $scope.link     = data.path
     $scope.file     = data.file
-
-  $scope.toggleMenu = ->
-    $mdSidenav('left').toggle()

@@ -1,9 +1,0 @@
-md-sidenav.favicon-sidenav(md-component-id="left", md-is-locked-open="$mdMedia('gt-sm')")
-  header.nav-header(layout="column" layout-align="center center")
-    a.favicon-logo(ui-sref='main')
-      img(src='assets/images/logo.svg', alt='Generate Favicon LOGO')
-
-  md-content.md-default-theme(flex, role="navigation")
-    ul.favicon-menu
-      li(ng-repeat="item in menu", ui-sref-active='active')
-        a(ui-sref='{{item.state}}') {{item.title}}
