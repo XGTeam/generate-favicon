@@ -1,13 +1,26 @@
 'use strict'
 
 angular.module 'generateFaviconApp'
-.controller 'MainCtrl', ($scope, $state) ->
+.controller 'MainCtrl', ($scope, $state, $mdDialog) ->
   $scope.uploaded = false
 
-  $scope.reloadRoute = ->
-    $state.reload()
-
   $scope.$on 'uploaded', (evt, data)->
-    $scope.uploaded = true
-    $scope.link     = data.path
-    $scope.file     = data.file
+    $mdDialog.show
+      controller: ($scope, $mdDialog, link, file, $state) ->
+        $scope.link = link
+        $scope.file = file
+
+        $scope.reloadRoute = ->
+          $state.reload()
+
+        $scope.hide = ->
+          $mdDialog.hide()
+
+        $scope.cancel = ->
+          $mdDialog.cancel()
+          $scope.reloadRoute()
+
+      templateUrl: 'components/result/result.html'
+      parent: angular.element(document.body)
+      clickOutsideToClose: false
+      locals: link: data.path, file: data.file

@@ -1,13 +1,20 @@
-.panel.panel-primary
-  .panel-heading
-    i.fa.fa-download
-    下载
-
-  .panel-body
-    p
-      a(href='{{link}}', target='_self', download='{{file}}') 下载生成的favicon
-      ， 然后将目录中的文件复制到你网站的根目录下
-
+md-dialog(aria-label='Favicon已经准备好')
+  md-toolbar.md-accent
+    .md-toolbar-tools
+      h2 Favicon已经准备好
+      span(flex)
+      md-button.md-icon-button(ng-click='cancel()')
+        i.fa.fa-remove
+  md-dialog-content(style='{max-width: 800px}')
+    md-list
+      md-list-item
+        p 下载生成的favicons，然后将目录中的文件复制到你网站的根目录下。
+        md-button.md-accent.md-fab(ng-href='{{link}}' 
+                                 target='_self' 
+                                 download='{{file}}'
+                                 aria-label='下载Favicons')
+          i.fa.fa-download
+          md-tooltip 下载Favicons
     h3 下一步？
     p= '将下列代码添加到你的HTML <head> 标签中'
 
@@ -51,5 +58,6 @@
         br
         = '<meta name="theme-color" content="#ffffff">'
 
-    p
-      a(ng-click='reloadRoute()') 生成另一个favicon
+  .md-actions(layout='row')
+    md-button.md-primary(ng-click='cancel()') 生成另一个favicon
+    span(flex)

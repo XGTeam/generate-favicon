@@ -6,7 +6,7 @@ form#upload-favicon-form(name='form')
         span(flex)
         md-button(ui-sref='about', target='_blank') 什么是favicon？
     img.md-card-image(ngf-src='file' alt='预览')
-    md-progress-linear(md-mode='determinate' 
+    md-progress-linear.md-accent(md-mode='determinate' 
                        value='{{progressbar.percent}}'
                        ng-if='progressbar.display')
     .md-actions(layout='row', layout-align='start center')
