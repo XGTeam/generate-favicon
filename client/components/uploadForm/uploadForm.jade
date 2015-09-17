@@ -1,14 +1,20 @@
-h3.leading 生成你的favicon.ico
-
 form#upload-favicon-form(name='form')
-  .form-group
-    button.btn.btn-default(ngf-select, ng-model='file', name='file', ngf-pattern='image/*', accept='image/*', ngf-max-size='20MB') 选择图片
-
-  .form-group
-    progressbar.progress-striped.active(ng-if='progressbar.display', value='progressbar.percent', type='info', max='100') {{progressbar.percent}}%
-
-  .form-group
-    img.img-responsive(ngf-src='file')
-
-  .form-group
-    button(type='submit', class='btn btn-default btn-primary', ng-click='submit()') 生成
+  md-card
+    md-toolbar
+      .md-toolbar-tools
+        h2 生成你的Favicons
+        span(flex)
+        md-button(ui-sref='about', target='_blank') 什么是favicon？
+    img.md-card-image(ngf-src='file' alt='预览')
+    .md-actions(layout='row', layout-align='start center')
+      md-button.md-raised(ngf-select
+                ng-model='file' 
+                name='file' 
+                ngf-pattern='image/*' 
+                accept='image/*'
+                ngf-max-size='20MB') 
+        i.fa.fa-image
+        md-tooltip 选择图片
+      md-button.md-raised.md-accent(type='submit', ng-click='submit()')
+        i.fa.fa-magic
+        md-tooltip 生成Favicons

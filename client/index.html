@@ -47,8 +47,8 @@
 
 <body layout="row" ng-app="generateFaviconApp" flex ng-controller="AppCtrl">
   <!--[if lt IE 7]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
 
   <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2 favicon-sidenav"
               md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
@@ -58,17 +58,19 @@
       </a>
     </header>
 
-    <md-content flex role="navigation">
+    <md-content flex role="navigation" layout-align="space-between center" layout="column">
       <ul class="favicon-menu">
-        <li ng-repeat="item in menu" ui-sref-active="active">
-          <a ui-sref="{{item.state}}">{{item.title}}</a>
+        <li ng-repeat="item in menu">
+          <md-button class="md-primary" ui-sref="{{item.state}}" ui-sref-active="md-warn">
+            {{item.title}}
+          </md-button>
         </li>
       </ul>
     </md-content>
   </md-sidenav>
 
   <div layout="column" flex>
-    <md-toolbar class="md-accent">
+    <md-toolbar class="md-accent md-whiteframe-z2">
       <div class="md-toolbar-tools">
         <md-button class="md-icon-button" ng-click="toggleMenu()"
                    aria-label="Settings" hide-gt-sm>
@@ -84,6 +86,10 @@
         </md-button>
       </div>
     </md-toolbar>
+
+    <md-content layout="column" flex ui-view="" id="content" class="md-padding"></md-content>
+
+    <footer></footer>
   </div>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -103,7 +109,6 @@
   <!-- build:js({client,node_modules}) app/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-aria/angular-aria.js"></script>
@@ -122,8 +127,6 @@
   <script src="app/about/about.js"></script>
   <script src="app/main/main.js"></script>
   <script src="components/footer/footer.js"></script>
-  <script src="components/modal/modal.js"></script>
-  <script src="components/navbar/navbar.js"></script>
   <script src="components/result/result.js"></script>
   <script src="components/ui-router/ui-router.js"></script>
   <script src="components/uploadForm/uploadForm.js"></script>

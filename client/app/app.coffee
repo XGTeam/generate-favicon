@@ -5,7 +5,6 @@ angular.module 'generateFaviconApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'ui.bootstrap',
   'ngFileUpload',
   'ngMaterial'
 ]
@@ -26,7 +25,7 @@ angular.module 'generateFaviconApp', [
     title: '首页'
     state: 'main'
   ,
-    title: '关于Favicon'
+    title: '关于'
     state: 'about'
   ]
 

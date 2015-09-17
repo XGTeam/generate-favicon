@@ -1,0 +1,24 @@
+$nav-width: 256px;
+
+.favicon-sidenav, .favicon-sidenav.md-locked-open-add-active, .favicon-sidenav.md-locked-open {
+  width:  $nav-width;
+  max-width: $nav-width;
+  min-width: $nav-width;
+
+  .nav-header {
+    margin-top: 20px;
+  }
+}
+
+.favicon-sidenav, md-sidenav {
+  background-color: '#607D8B';
+
+  md-content {
+    background: transparent;
+  }
+}
+
+.favicon-menu {
+  list-style: none;
+  padding: 0;
+}

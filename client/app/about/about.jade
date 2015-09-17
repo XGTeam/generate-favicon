@@ -1,69 +1,61 @@
-navbar
+h1.page-header 关于Favicon
 
-.container
-  .row
-    .col-lg-12
-      h1.page-header 关于Favicon
+p
+  strong 如果你有网站，你就需要favicon。
+p.
+  Favicon(是Favorite Icon)的简称，它是一张通常是16x16像素的图片。Favicon
+  出现在很多的地方，包括浏览器的工具栏、书签栏、标签、地址栏。
 
-      p
-        strong 如果你有网站，你就需要favicon。
-      p.
-        Favicon(是Favorite Icon)的简称，它是一张通常是16x16像素的图片。Favicon
-        出现在很多的地方，包括浏览器的工具栏、书签栏、标签、地址栏。
+h1.page-header generate-favicon.com做什么
 
-      h1.page-header generate-favicon.com做什么
+p.
+  虽然很多现代的浏览器已经支持png, gif, jpg等格式的favicon，但是IE5 - IE10
+  依然只支持<code>.ico格式</code>的图片。我们的网站可以帮助您将任意的gif格
+  式、png格式或者jpg格式的图片转换成您所需要的ico图标，并且它还会帮您生成各
+  种其他您需要的不同尺寸的Favicons。
 
-      p.
-        虽然很多现代的浏览器已经支持png, gif, jpg等格式的favicon，但是IE5 - IE10
-        依然只支持<code>.ico格式</code>的图片。我们的网站可以帮助您将任意的gif格
-        式、png格式或者jpg格式的图片转换成您所需要的ico图标，并且它还会帮您生成各
-        种其他您需要的不同尺寸的Favicons。
+h1.page-header 如何使用Favicons
 
-      h1.page-header 如何使用Favicons
+p.
+  在使用我们的工具生成Favicons，并且下载解压后，将解压后的目录中的文件全部
+  复制到网站的根目录(WEB根目录)，然后将下面的代码添加到你的<code>head</code>标签中。
 
-      p.
-        在使用我们的工具生成Favicons，并且下载解压后，将解压后的目录中的文件全部
-        复制到网站的根目录(WEB根目录)，然后将下面的代码添加到你的<code>head</code>标签中。
-
-      pre
-        code
-          = '<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">'
-          br
-          = '<link rel="icon" href="/favicon.ico" type="image/x-icon">'
-          br
-          = '<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">'
-          br
-          = '<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">'
-          br
-          = '<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">'
-          br
-          = '<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">'
-          br
-          = '<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">'
-          br
-          = '<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">'
-          br
-          = '<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">'
-          br
-          = '<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">'
-          br
-          = '<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">'
-          br
-          = '<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">'
-          br
-          = '<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">'
-          br
-          = '<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">'
-          br
-          = '<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">'
-          br
-          = '<link rel="manifest" href="/manifest.json">'
-          br
-          = '<meta name="msapplication-TileColor" content="#ffffff">'
-          br
-          = '<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">'
-          br
-          = '<meta name="theme-color" content="#ffffff">'
-
-footer
-
+pre
+  code
+    = '<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">'
+    br
+    = '<link rel="icon" href="/favicon.ico" type="image/x-icon">'
+    br
+    = '<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">'
+    br
+    = '<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">'
+    br
+    = '<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">'
+    br
+    = '<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">'
+    br
+    = '<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">'
+    br
+    = '<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">'
+    br
+    = '<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">'
+    br
+    = '<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">'
+    br
+    = '<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">'
+    br
+    = '<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">'
+    br
+    = '<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">'
+    br
+    = '<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">'
+    br
+    = '<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">'
+    br
+    = '<link rel="manifest" href="/manifest.json">'
+    br
+    = '<meta name="msapplication-TileColor" content="#ffffff">'
+    br
+    = '<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">'
+    br
+    = '<meta name="theme-color" content="#ffffff">'
