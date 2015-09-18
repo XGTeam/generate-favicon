@@ -57,6 +57,9 @@ angular.module 'generateFaviconApp', [
     cmd : 'copy'
   ]
 
+  $scope.$on 'sharing', (evt) ->
+    $scope.showGridBottomSheet(evt)
+
   $scope.toggleMenu = ->
     $mdSidenav('left').toggle()
 

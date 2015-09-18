@@ -20,7 +20,12 @@ angular.module 'generateFaviconApp'
           $mdDialog.cancel()
           $scope.reloadRoute()
 
+        $scope.share = ->
+          $mdDialog.hide()
+
       templateUrl: 'components/result/result.html'
       parent: angular.element(document.body)
       clickOutsideToClose: false
       locals: link: data.path, file: data.file
+    .then ->
+      $scope.$emit 'sharing'
